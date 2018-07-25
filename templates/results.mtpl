@@ -44,9 +44,18 @@
             </div>
             <div id="tab-{{tabIndex}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
-              {{#usedIn}}
-                <p><strong>{{moduleId}}</strong></p>
-              {{/usedIn}}
+                <table class="table table-striped">
+                  <tr>
+                    <th>file path</th>
+                    <th>Used time</th>
+                  </tr>
+                  {{#usedIn}}
+                    <tr>
+                      <td><p><strong>{{moduleId}}</strong></p></td>
+                      <td><p><strong>{{used}}</strong></p></td>
+                    </tr>
+                  {{/usedIn}}
+                 </table>
               </div>
             </div>
           </div>

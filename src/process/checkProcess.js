@@ -6,11 +6,30 @@ import Mustache from 'mustache';
 
 const resultsTemplate = `${__dirname}/../../templates/results.mtpl`;
 
+const formatReasons = (reasons) => {
+  const reformatedReason = [];
+  reasons.forEach((reason) => {
+    const indexOfFindedModule  = reformatedReason.findIndex((module) => module.moduleId === reason.moduleId);
+    if(indexOfFindedModule < 0) {
+      reformatedReason.push({moduleId: reason.moduleId, used: 1})
+    } else {
+      reformatedReason[indexOfFindedModule].used += 1
+    }
+  });
+  return reformatedReason
+};
+
+const reformatModules = (modules) => {
+  return modules.map((module) => {
+    return {...module, reasons: formatReasons(module.reasons)};
+  })
+};
 
 export const process = ({ filePath, minImports }) => {
   return new Promise((resolve) => {
     loadJsonFile(filePath).then((json) => {
-      const modulesTargeted = json.modules.filter((module) => module.reasons && module.reasons.length >= minImports);
+      const formatedModule = reformatModules(json.modules);
+      const modulesTargeted = formatedModule.filter((module) => module.reasons && module.reasons.length >= minImports);
       const template = readFileSync(resultsTemplate, 'utf8');
       let tabIndex = 0;
       let currentId = '';

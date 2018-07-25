@@ -20,9 +20,9 @@ npm install -g npx
 
 export your webpack json stats file: 
  
-```bash 
+```bash ./src/Wynd/CustomerDisplayBundle/Resources/public/js/customerDisplay.view.js
 
-webpack --json
+webpack --json > stats.json
 
 ```
 
