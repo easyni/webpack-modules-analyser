@@ -5,16 +5,26 @@ inquirer.registerPrompt('number', require('inquirer-number-plus'));
 
 let answerToProcess = {};
 
+const testIsANumber = (str) => {
+  const n = Math.floor(Number(str));
+  return n !== Infinity && String(n) === str && n >= 0;
+};
+
 export function questions() {
   return new Promise((resolve, reject) => {
     inquirer.prompt([
       {
-        type: 'number',
-        message: 'what are the minimums import you wanna target ?',
+        type: 'input',
+        message: 'what are the minimums import you wanna target ? [number]',
         name: 'minImports',
+        default: 1
       },
     ]).then((answersStep) => {
       answerToProcess = { ...answersStep };
+      if(!testIsANumber(answersStep.minImports)){
+        console.log("you have to put an integer ");
+        return Promise.reject();
+      }
       return inquirer.prompt([{
         type: 'file',
         name: 'to',
