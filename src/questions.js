@@ -27,8 +27,8 @@ export function questions() {
       return inquirer.prompt([{
         type: 'confirm',
         name: 'confirm',
-        message: `you confirm you wanna target ${answersStep.minImports}
-      in that path : ‘${answersStep.to}‘ ? `,
+        message: `you confirm you wanna target ${answerToProcess.minImports} times minimums import 
+      in that path : ‘${answerToProcess.to}‘ ? `,
       }]);
     }).then((answersStep) => {
       if (answersStep.confirm) {
