@@ -25,7 +25,7 @@
     <table class="table table-striped">
       <tr>
         <th>file path</th>
-        <th>Used time</th>
+        <th>Used times</th>
       </tr>
       {{#modulesTargeted}}
       <tr>
@@ -47,7 +47,7 @@
                 <table class="table table-striped">
                   <tr>
                     <th>file path</th>
-                    <th>Used time</th>
+                    <th>Used times</th>
                   </tr>
                   {{#usedIn}}
                     <tr>
