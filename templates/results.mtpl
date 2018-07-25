@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <title>Results</title>
+</head>
+<body>
+  <div class="container">
+    <h1> Here all modules imported more than {{minImports}} times</h1>
+    <table class="table table-striped">
+      <tr>
+        <th>file path</th>
+        <th>Used time</th>
+      </tr>
+      {{#modulesTargeted}}
+      <tr>
+        <td><h4><strong> {{tabIndex}} - "{{id}}"</strong></h4></td>
+        <td><h4><strong style="font-size: 18px;">{{getUsedTime}}</strong></h4></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#tab-{{tabIndex}}" aria-expanded="true" aria-controls="collapseOne">
+                  <h4> [+] used in</h4>
+                </button>
+              </h5>
+            </div>
+            <div id="tab-{{tabIndex}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+              {{#usedIn}}
+                <p><strong>{{moduleId}}</strong></p>
+              {{/usedIn}}
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      {{/modulesTargeted}}
+    </table>
+  </div>
+</body>
+</html>

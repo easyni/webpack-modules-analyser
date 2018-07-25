@@ -1,0 +1,60 @@
+{
+  "name": "testautomate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "bin": {
+    "test-automate-jest-enzyme": "./cli.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "NODE_ENV=development node --inspect index.js",
+    "dev-nodebug": "NODE_ENV=development node index.js",
+    "export-cli": "babel src --out-dir lib --presets=env,stage-0,stage-1,stage-2,stage-3,react",
+    "lint": "./node_modules/eslint/bin/eslint.js --fix ./src/",
+    "lintw": "./node_modules/eslint-watch/bin/esw -w --fix ./src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas Ribes",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "debug": "^3.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-jolicode": "^1.0.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "eslint-watch": "^3.1.5",
+    "esprima": "^4.0.0",
+    "express": "^4.16.3",
+    "inquirer": "^6.0.0",
+    "inquirer-directory": "^2.1.0",
+    "inquirer-file": "^1.0.1",
+    "inquirer-file-path": "^1.0.1",
+    "inquirer-number-plus": "^0.9.9",
+    "load-json-file": "^5.0.0",
+    "mustache": "^2.3.0",
+    "openurl": "^1.1.1",
+    "parse-js": "^0.5.2",
+    "react": "^16.4.0",
+    "uglify-js": "^3.4.0",
+    "uglifyjs": "^2.4.11",
+    "winston": "^3.0.0"
+  }
+}
