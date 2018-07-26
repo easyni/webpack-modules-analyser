@@ -4,6 +4,7 @@ import openurl from 'openurl';
 import loadJsonFile from 'load-json-file';
 import Mustache from 'mustache';
 
+const arv = require('minimist')(process.argv.slice(2));
 const resultsTemplate = `${__dirname}/../../templates/results.mtpl`;
 
 const formatReasons = (reasons) => {
@@ -25,11 +26,13 @@ const reformatModules = (modules) => {
   })
 };
 
-export const process = ({ filePath, minImports }) => {
+export const processStats = ({ filePath, minImports }) => {
   return new Promise((resolve) => {
     loadJsonFile(filePath).then((json) => {
       const formatedModule = reformatModules(json.modules);
-      const modulesTargeted = formatedModule.filter((module) => module.reasons && module.reasons.length >= minImports);
+      const { ignore } = arv;
+      const formatedRegExp = (ignore && `^(?!.*(${ignore.replace(',', '|')})).*$`) || '^.*$`';
+      const modulesTargeted = formatedModule.filter((module) => `${module.id}`.match(new RegExp(formatedRegExp, 'gi')) && module.reasons && module.reasons.length >= minImports);
       const template = readFileSync(resultsTemplate, 'utf8');
       let tabIndex = 0;
       let currentId = '';

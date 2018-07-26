@@ -49,6 +49,7 @@
     "inquirer-file-path": "^1.0.1",
     "inquirer-number-plus": "^0.9.9",
     "load-json-file": "^5.0.0",
+    "minimist": "^1.2.0",
     "mustache": "^2.3.0",
     "openurl": "^1.1.1",
     "parse-js": "^0.5.2",

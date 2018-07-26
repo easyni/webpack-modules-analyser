@@ -34,3 +34,11 @@ and launch:
 npx git+https://github.com/easyni/webpack-modules-analyser.git
 
 ```
+
+To ignore some patterns 
+
+```bash 
+
+npx git+https://github.com/easyni/webpack-modules-analyser.git --ignore node_modules,foo
+
+```
