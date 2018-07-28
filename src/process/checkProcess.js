@@ -5,7 +5,7 @@ import loadJsonFile from 'load-json-file';
 import Mustache from 'mustache';
 
 const arv = require('minimist')(process.argv.slice(2));
-
+ console.log(arv);
 const resultsTemplate = `${__dirname}/../../templates/results.mtpl`;
 
 const formatReasons = (reasons) => {
@@ -30,7 +30,7 @@ export const processStats = ({ filePath, minImports }) => new Promise((resolve) 
     const formatedModule = reformatModules(json.modules);
     const { ignore } = arv;
     const formatedRegExp = (ignore && `^(?!.*(${ignore.replace(',', '|')})).*$`) || '^.*$';
-    const modulesTargeted = formatedModule.filter(module => `${module.identifier}`.match(new RegExp(formatedRegExp, 'gi')) && module.reasons && module.reasons.length >= minImports);
+    const modulesTargeted = formatedModule.filter(module => `${module.name}`.match(new RegExp(formatedRegExp, 'gi')) && module.reasons && module.reasons.length >= minImports);
     const template = readFileSync(resultsTemplate, 'utf8');
     let tabIndex = 0;
     let currentId = '';

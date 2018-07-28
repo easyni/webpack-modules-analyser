@@ -29,7 +29,10 @@
       </tr>
       {{#modulesTargeted}}
       <tr>
-        <td><h4><strong> {{tabIndex}} - "{{name}}"</strong></h4></td>
+        <td>
+          <h4><strong>{{tabIndex}} - "{{name}}"</strong></h4>
+          <p><strong>Identifier: </strong>{{identifier}}</p>
+        </td>
         <td><h4><strong style="font-size: 18px;">{{getUsedTime}}</strong></h4></td>
       </tr>
       <tr>
