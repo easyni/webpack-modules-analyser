@@ -1,11 +1,13 @@
 # README
 
-[![CircleCI](https://circleci.com/gh/easyni/test-automate-jest-enzyme/tree/master.svg?style=svg)](https://circleci.com/gh/easyni/test-automate-jest-enzyme/tree/master)
+[![CircleCI](https://circleci.com/gh/easyni/webpack-modules-analyser.svg?style=svg)](https://circleci.com/gh/easyni/webpack-modules-analyser)
 
 ## Basic install & use
 ### node version 8
 
 this project have the objective to analyse the webpack statistics and extract the usage of modules
+
+![dashboard](https://github.com/easyni/webpack-modules-analyser/blob/master/README/dashboard.jpg)
 
 ### HOW TO USE
 
@@ -25,7 +27,6 @@ export your webpack json stats file:
 webpack --json > stats.json
 
 ```
-
 
 and launch: 
  

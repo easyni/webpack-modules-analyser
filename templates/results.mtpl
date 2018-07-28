@@ -29,7 +29,7 @@
       </tr>
       {{#modulesTargeted}}
       <tr>
-        <td><h4><strong> {{tabIndex}} - "{{id}}"</strong></h4></td>
+        <td><h4><strong> {{tabIndex}} - "{{name}}"</strong></h4></td>
         <td><h4><strong style="font-size: 18px;">{{getUsedTime}}</strong></h4></td>
       </tr>
       <tr>
@@ -51,7 +51,7 @@
                   </tr>
                   {{#usedIn}}
                     <tr>
-                      <td><p><strong>{{moduleId}}</strong></p></td>
+                      <td><p><strong>{{moduleName}}</strong></p></td>
                       <td><p><strong>{{used}}</strong></p></td>
                     </tr>
                   {{/usedIn}}

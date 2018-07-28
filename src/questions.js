@@ -17,12 +17,12 @@ export function questions() {
         type: 'input',
         message: 'what are the minimums import you wanna target ? [number]',
         name: 'minImports',
-        default: 1
+        default: 1,
       },
     ]).then((answersStep) => {
       answerToProcess = { ...answersStep };
-      if(!testIsANumber(answersStep.minImports)){
-        console.log("you have to put an integer ");
+      if (!testIsANumber(answersStep.minImports)) {
+        console.log('\x1b[31m%s\x1b[0m', 'you have to put an integer '); // eslint-disable-line
         return Promise.reject();
       }
       return inquirer.prompt([{
@@ -46,7 +46,8 @@ export function questions() {
       } else {
         reject();
       }
-    }).catch(() => reject());
+    })
+      .catch(() => reject());
   });
 }
 
