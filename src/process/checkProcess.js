@@ -5,7 +5,7 @@ import loadJsonFile from 'load-json-file';
 import Mustache from 'mustache';
 
 const arv = require('minimist')(process.argv.slice(2));
- console.log(arv);
+
 const resultsTemplate = `${__dirname}/../../templates/results.mtpl`;
 
 const formatReasons = (reasons) => {
